@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-card img {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .login-card h2 {
+            margin-bottom: 15px;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            border-radius: 4px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .remember-forgot label {
+            display: inline-block;
+        }
+
+        .remember-forgot a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .remember-forgot input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .login-card button {
+            width: 100%;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .login-card .login-using-pin-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            color: #e74c3c; /* Red text color */
+            border: 1px solid #e74c3c;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div>
+            <img src="ExamsLegacy.png" alt="ExamsLegacy.png">
+            <h2>Exams Portal</h2>
+        </div>
+        <form>
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" name="remember"> Remember Me
+                </label>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+            <button type="button" class="login-using-pin-button">Login Using ITS PIN Instead</button>
+        </form>
+    </div>
+</body>
+</html>

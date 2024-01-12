@@ -104,9 +104,17 @@
                 </label>
                 <a href="#" class="forgot-link">Forgot Password?</a>
             </div>
-            <button type="submit">Login</button>
+            <button type="button" onclick="redirectToResults()">Login</button>
             <button type="button" class="login-using-pin-button">Login Using ITS PIN Instead</button>
         </form>
     </div>
+
+    <script>
+        function redirectToResults() {
+            // You can add your login logic here
+            // For this example, let's redirect to "results.html"
+            window.location.href = "results.html";
+        }
+    </script>
 </body>
 </html>

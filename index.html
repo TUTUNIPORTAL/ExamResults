@@ -1,120 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            display: grid;
-           
-            height: 100vh;
-           
-            grid-template-columns: 1fr auto;
         }
 
-        #container {
+        .header {
+            background-color: #fff;
+            padding: 10px;
+            color: #333;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             display: flex;
-            width: 100%;
+            justify-content: space-between;
+            align-items: center; /* Center vertically */
         }
 
-        #div1, #div2 {
-            margin: 0; 
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0px;
+        .menu-button {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .logo {
+            flex: 1; /* Take remaining space */
             text-align: center;
         }
 
-        #div1 {
-            background-color: #eee;
+        .card {
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px auto;
         }
 
-        #picdiv {
+        .column1 {
+            flex: 1;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Set 1:2 ratio */
+        }
+
+        .column1 img {
             width: 100%;
-            height: 100%;
+            height: auto; /* Allow the height to adjust proportionally */
+            object-fit: cover;
+            grid-column: 1; /* Occupy the first column */
+            grid-row: 1 / span 2; /* Occupy two rows starting from the first row */
+        }
+
+        .column1 .content {
+            grid-column: 2; /* Occupy the second column */
+            padding-left: 20px; /* Add padding for separation */
             display: flex;
             flex-direction: column;
-            align-items: center;
+        }
+
+        .content div {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .content .rectangular1 {
+            background-color: #3498db; /* Blue */
+        }
+
+        .content .rectangular2 {
+            background-color: #2ecc71; /* Green */
+        }
+
+        .content .rectangular3 {
+            background-color: #e74c3c; /* Red */
+        }
+
+        h1.semester {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .new-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .table-container {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .table-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .table-column {
+            flex: 1;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .table-column:last-child {
+            border-right: none;
+        }
+
+        .additional-info {
             margin: 20px;
         }
 
-        .picture {
-            width: 100%;
-            max-width: 100%; /* Adjust the max-width based on your needs */
-            margin-bottom: 0px;
-            border-radius: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .additional-info p {
+            margin-bottom: 10px;
         }
-          .button-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        .button {
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
     </style>
-    <title>Picture Gallery</title>
+    <title>Card with Two Columns</title>
 </head>
+
 <body>
 
-<div id="container">
-    <div id="div1">
-        <html lang="en"><head>
-  <title>iEnabler Self-Help</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/itsincludes/css/itsmenu.css">
-  <script src="/itsincludes/js/its_menu.js" type="text/javascript"></script>
-<script>
-var i_level=new Array(1,2,2,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,2,1,2,2,2,1,2,2,2,2,2,2,2,2,2,1,2,2,1,2,2,1,2,2,2,1,2,2,2,2,1,2,1,1,2,2,1,1,2,2,2,2,2,2,2,1,2,1,2,2,1,2,2,1,2,2,2,1,2,2,2,1,2,2,2,2,1,2,1,2,3,3,3,3,2,1,1,2,2,1,2,2,2,2,2,2,2,2,1,2,3,2,3,2,3,3,3,3,2,3,3,2,3);
-var i_open=new Array(0,2,2,2,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0,2,0,2,0,2,2,2,0,2,2,2,2,2,2,2,2,2,0,2,2,0,2,2,0,2,2,2,0,2,2,2,2,0,2,0,0,2,2,0,0,2,2,2,2,2,2,2,0,2,0,2,2,0,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0,2,0,0,2,2,2,2,0,0,0,2,2,0,2,2,2,2,2,2,2,2,0,0,2,0,2,0,2,2,2,2,0,2,2,0,2);
-var i_ind=new Array("M","U","U","U","M","U","U","U","U","U","U","U","U","U","U","U","U","U","U","M","U","U","U","U","U","U","U","U","M","U","M","U","M","U","U","U","M","U","U","U","U","U","U","U","U","U","M","U","U","M","U","U","M","U","U","U","M","U","U","U","U","M","U","M","M","U","U","M","M","U","U","U","U","U","U","U","M","U","M","U","U","M","U","U","M","U","U","U","M","U","U","U","M","U","U","U","U","M","U","M","M","U","U","U","U","M","M","M","U","U","M","U","U","U","U","U","U","U","U","M","M","U","M","U","M","U","U","U","U","M","U","U","M","U");
-var i_help=new Array("","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","");
-var i_target=new Array("F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","_self","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","_self","F3","F3","F3","_self","_self","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","F3","_self","F3","_self","_self","F3","F3","F3","F3","_self","_self","_self","F3","F3","_self","F3","F3","F3","F3","F3","F3","F3","F3","_self","_self","F3","_self","F3","_self","F3","F3","F3","F3","_self","F3","F3","_self","F3");
-var i_url=new Array("w99pkg.mi_validate_option?x_busfct=S00031&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00031&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00031&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00031&x_seq=30","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=3","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=3","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=7","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=20","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=40","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=50","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=55","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=60","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=80","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=90","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=100","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=110","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=120","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=130","w99pkg.mi_validate_option?x_busfct=N00000&x_seq=999","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=20","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=35","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=40","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=50","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=60","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=70","w99pkg.mi_validate_option?x_busfct=N00003&x_seq=999","w99pkg.mi_validate_option?x_busfct=N00006&x_seq=30","w99pkg.mi_validate_option?x_busfct=N00006&x_seq=30","w99pkg.mi_validate_option?x_busfct=N00013&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00013&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00010&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00010&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00010&x_seq=30","w99pkg.mi_validate_option?x_busfct=S00010&x_seq=999","S00000","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=42","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=45","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=79","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=85","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=110","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=114","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=120","w99pkg.mi_validate_option?x_busfct=S00009&x_seq=999","w99pkg.mi_validate_option?x_busfct=N0003&x_seq=10","w99pkg.mi_validate_option?x_busfct=N0003&x_seq=10","w99pkg.mi_validate_option?x_busfct=N0003&x_seq=30","w99pkg.mi_validate_option?x_busfct=N0002&x_seq=30","w99pkg.mi_validate_option?x_busfct=N0002&x_seq=30","w99pkg.mi_validate_option?x_busfct=N0002&x_seq=60","w99pkg.mi_validate_option?x_busfct=N00012&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00012&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00012&x_seq=20","w99pkg.mi_validate_option?x_busfct=N00012&x_seq=30","w99pkg.mi_validate_option?x_busfct=S00014&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00014&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00014&x_seq=30","w99pkg.mi_validate_option?x_busfct=S00014&x_seq=50","w99pkg.mi_validate_option?x_busfct=S00014&x_seq=999","w99pkg.mi_validate_option?x_busfct=N00011&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00011&x_seq=10","S00000","w99pkg.mi_validate_option?x_busfct=N00015&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00015&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00015&x_seq=20","S00000","S00000","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=117","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=118","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=119","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=120","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=121","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=122","w99pkg.mi_validate_option?x_busfct=N00020&x_seq=123","w99pkg.mi_validate_option?x_busfct=N00007&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00007&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00010&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00010&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00010&x_seq=20","w99pkg.mi_validate_option?x_busfct=N00009&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00009&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00009&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00011P&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00011P&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00011P&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00011P&x_seq=30","w99pkg.mi_validate_option?x_busfct=S00015P&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00015P&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00015P&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00015P&x_seq=30","w99pkg.mi_validate_option?x_busfct=N00008&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00008&x_seq=10","w99pkg.mi_validate_option?x_busfct=N00008&x_seq=20","w99pkg.mi_validate_option?x_busfct=N00008&x_seq=30","w99pkg.mi_validate_option?x_busfct=N00008&x_seq=40","S00000","w99pkg.mi_validate_option?x_busfct=S000RI&x_seq=10","S00000","S00017","w99pkg.mi_validate_option?x_busfct=S00018&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00018&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00018&x_seq=30","w99pkg.mi_validate_option?x_busfct=S00018&x_seq=40","S00017","S00000","S00000","w99pkg.mi_validate_option?x_busfct=S00020&x_seq=400","w99pkg.mi_validate_option?x_busfct=S00020&x_seq=401","S00000","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=4","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=5","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=10","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=15","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=20","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=30","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=35","w99pkg.mi_validate_option?x_busfct=S00011&x_seq=40","S00000","S00400","w99pkg.mi_validate_option?x_busfct=S004S1&x_seq=10","S00400","w99pkg.mi_validate_option?x_busfct=S004S2&x_seq=10","S00400","w99pkg.mi_validate_option?x_busfct=S004S3&x_seq=10","w99pkg.mi_validate_option?x_busfct=S004S3&x_seq=20","w99pkg.mi_validate_option?x_busfct=S004S3&x_seq=30","w99pkg.mi_validate_option?x_busfct=S004S3&x_seq=40","S00400","w99pkg.mi_validate_option?x_busfct=S004X1&x_seq=10","w99pkg.mi_validate_option?x_busfct=S004X1&x_seq=20","S00400","w99pkg.mi_validate_option?x_busfct=S004L1&x_seq=10");
-var i_text=new Array("Returning Students Application","POPI Act","View Application Rules","Student Application","First Time Applicants","View Application Rules","How to Upload Documents","Qualification you wish to apply for","Any Disabilities?","Address Validation","Contact Persons","Communication Detail","Medical Aid","Enter Previous Qualifications","Certificates seen","Financial Aid Application","Financial Aid Details","Check List","Process Status","Re-admission","View Application Rules","Qualification you wish to apply for","Certificates seen","Address Validation","Communication Detail","Financial Aid Application","Financial Aid Details","Process Status","Enquiries on Applications","Certificates seen","Enquiries on Residences","Residence Admission Status","Residence Application","Residence Rules and Regulations","Submit Residence Application","Process Status","Registration","Rules and Regulations","Submit Registration","Proof of Registration - PDF","Add Subjects to a Registration","Proof of Registration - PDF","Address Validation","Email Proof of Registration","Communication Detail","Process Status","Subject Cancellation","Subject Cancellation","Proof of Registration - PDF","Qualification Cancellation","Qualification Cancellation","Proof of Registration - PDF","Address/Communication Info","Detail Address/Contacts Enquiry","Address Validation","Communication Detail","Residence Registration","Residence Registration Rules and Regulations","Submit Residence Registration","Residence Proof of Registration","Process Status","Class Timetable","Class Timetable","Examination Venue","Enquiries on Assignments","Task Detail","Assessment Status","Enquiries on Financial Aid","Financial Aid","Financial Aid Rules and Regulations","Financial Aid Application","Financial Aid Details","Bursary Appeals","Adding of Planned Subjects for Financial Aid","NSFAS Web Appointments Information","NSFAS Web Appointments","Enquiries on Test Marks","Progress Report","Examination Information","Examination Timetable","Examination Results","Financial Statements","Summarised Statement of Account","Aged Statement of Account","MyGate Online Payment","Payment Information - Rules and Regulations","Process Online Payment","View Online Transaction Details","Maintain Banking details","Banking Details Rules and Reg","Capture Banking Details","Upload Banking Documents","Graduation","Graduation Attendance","Qualifications Awarded","Communication Detail","Address Validation","Request For Information","Request for Information","Student Finance","Acknowledgement of Debt","AOD Terms and Conditions","AOD Application","AOD Upload Documentation","AOD Information","Refunds","Access Control","Medical Web","Query Appointments","Make Appointments","OPAC","Search Library Catalog","My Items on Loan","My Previous Searches","My Fines","My Items on Hold","Suggest an Item","My Interests","My Circulation History","Higher Degrees","Applications","Applications listing","Proposals and Ethics","Review Proposal Submissions","Suspension Applications","New Suspension","Change Suspension","Remove Suspension","View Suspensions","Intention to Submit","Intention to Submit - Initial Submission","Review Intention To Submit Entries","General","Review Progress Report");
-var i_auto=new Array("Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","N","Y","Y","Y","Y","Y","Y","Y","Y","N","Y","Y","Y","Y","Y","Y","Y","N","N","N","N","N","N","N","N","N","N","N","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","N","Y","Y","N","Y","Y","Y","Y","N","N","N","N","N","N","N","N","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","N","N","Y","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N");
-var i_mand=new Array("N","N","N","N","N","N","Y","Y","Y","Y","Y","Y","Y","Y","N","Y","Y","Y","N","Y","Y","Y","N","Y","Y","Y","Y","N","N","N","Y","Y","N","N","N","N","N","N","N","N","N","N","N","N","N","N","Y","Y","N","Y","Y","N","Y","Y","Y","Y","Y","Y","N","Y","N","Y","Y","N","Y","Y","Y","N","N","N","N","N","N","N","N","N","N","N","Y","Y","Y","Y","Y","Y","N","N","N","N","N","N","N","N","Y","Y","Y","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N");
-function PopUp(pagename, windowname, w, h) { 
- var winl = (screen.width - w) / 2; 
- var wint = (screen.height - h) / 2; 
- winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars=1,resizable' 
- win = window.open(pagename, windowname, winprops) 
- if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); } 
-}
-</script></head>
-
-
-<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
-     <button class="button">Click me</button>
-    
-<div class="w3-tag w3-round w3-blue" style="padding:3px">
- <div class="w3-tag w3-round w3-blue w3-border w3-border-white" style="">Student Web</div>
-</div>
-<script>init();</script><div id="menu" class="container"><div class="row"><div class="col-sm-12"><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(0);" onmouseover="showstat(0); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,0);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(0);" class="menuLvlM1" id="menuId0" onmouseover="showstat(0); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,0);">Returning Students Application</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(4);" onmouseover="showstat(4); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,4);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(4);" class="menuLvlM1" id="menuId4" onmouseover="showstat(4); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,4);">First Time Applicants</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(19);" onmouseover="showstat(19); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,19);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(19);" class="menuLvlM1" id="menuId19" onmouseover="showstat(19); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,19);">Re-admission</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(28);" onmouseover="showstat(28); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,28);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(28);" class="menuLvlM1" id="menuId28" onmouseover="showstat(28); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,28);">Enquiries on Applications</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(30);" onmouseover="showstat(30); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,30);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(30);" class="menuLvlM1" id="menuId30" onmouseover="showstat(30); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,30);">Enquiries on Residences</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(32);" onmouseover="showstat(32); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,32);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(32);" class="menuLvlM1" id="menuId32" onmouseover="showstat(32); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,32);">Residence Application</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(36);" onmouseover="showstat(36); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,36);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(36);" class="menuLvlM1" id="menuId36" onmouseover="showstat(36); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,36);">Registration</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(46);" onmouseover="showstat(46); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,46);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(46);" class="menuLvlM1" id="menuId46" onmouseover="showstat(46); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,46);">Subject Cancellation</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(49);" onmouseover="showstat(49); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,49);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretclose.png" border="0" width="15" alt="Close This Menu"></a>&nbsp;<a href="javascript:do_plusmin(49);" class="menuLvlM1" id="menuId49" onmouseover="showstat(49); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,49);" style="text-decoration:none;">Qualification Cancellation</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;&nbsp;<img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15" alt=""><a href="w99pkg.mi_validate_option?x_busfct=N0002&amp;x_seq=30" target="F3" class="menuLvlU2" id="menuId50" onmouseover="showstat(50); return true;" onmouseout="hidestat()" onclick="w3_close(); return mouseDown(event,this,50);" style="text-decoration:underline;">Qualification Cancellation</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;&nbsp;<img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15" alt=""><a href="w99pkg.mi_validate_option?x_busfct=N0002&amp;x_seq=60" target="F3" class="menuLvlU2" id="menuId51" onmouseover="showstat(51); return true;" onmouseout="hidestat()" onclick="w3_close(); return mouseDown(event,this,51);">Proof of Registration - PDF</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(52);" onmouseover="showstat(52); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,52);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(52);" class="menuLvlM1" id="menuId52" onmouseover="showstat(52); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,52);">Address/Communication Info</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(56);" onmouseover="showstat(56); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,56);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(56);" class="menuLvlM1" id="menuId56" onmouseover="showstat(56); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,56);">Residence Registration</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(61);" onmouseover="showstat(61); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,61);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(61);" class="menuLvlM1" id="menuId61" onmouseover="showstat(61); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,61);">Class Timetable</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(63);" onmouseover="showstat(63); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,63);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(63);" class="menuLvlM1" id="menuId63" onmouseover="showstat(63); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,63);">Examination Venue</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(64);" onmouseover="showstat(64); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,64);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(64);" class="menuLvlM1" id="menuId64" onmouseover="showstat(64); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,64);">Enquiries on Assignments</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(67);" onmouseover="showstat(67); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,67);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(67);" class="menuLvlM1" id="menuId67" onmouseover="showstat(67); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,67);">Enquiries on Financial Aid</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(68);" onmouseover="showstat(68); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,68);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(68);" class="menuLvlM1" id="menuId68" onmouseover="showstat(68); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,68);">Financial Aid</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(76);" onmouseover="showstat(76); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,76);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretclose.png" border="0" width="15" alt="Close This Menu"></a>&nbsp;<a href="javascript:do_plusmin(76);" class="menuLvlM1" id="menuId76" onmouseover="showstat(76); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,76);">Enquiries on Test Marks</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;&nbsp;<img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15" alt=""><a href="w99pkg.mi_validate_option?x_busfct=N00007&amp;x_seq=10" target="F3" class="menuLvlU2" id="menuId77" onmouseover="showstat(77); return true;" onmouseout="hidestat()" onclick="w3_close(); return mouseDown(event,this,77);">Progress Report</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(78);" onmouseover="showstat(78); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,78);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(78);" class="menuLvlM1" id="menuId78" onmouseover="showstat(78); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,78);">Examination Information</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(81);" onmouseover="showstat(81); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,81);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(81);" class="menuLvlM1" id="menuId81" onmouseover="showstat(81); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,81);">Financial Statements</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(84);" onmouseover="showstat(84); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,84);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(84);" class="menuLvlM1" id="menuId84" onmouseover="showstat(84); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,84);">MyGate Online Payment</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(88);" onmouseover="showstat(88); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,88);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(88);" class="menuLvlM1" id="menuId88" onmouseover="showstat(88); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,88);">Maintain Banking details</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(92);" onmouseover="showstat(92); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,92);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(92);" class="menuLvlM1" id="menuId92" onmouseover="showstat(92); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,92);">Graduation</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(97);" onmouseover="showstat(97); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,97);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(97);" class="menuLvlM1" id="menuId97" onmouseover="showstat(97); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,97);">Request For Information</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(99);" onmouseover="showstat(99); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,99);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(99);" class="menuLvlM1" id="menuId99" onmouseover="showstat(99); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,99);">Student Finance</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(106);" onmouseover="showstat(106); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,106);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(106);" class="menuLvlM1" id="menuId106" onmouseover="showstat(106); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,106);">Access Control</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(107);" onmouseover="showstat(107); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,107);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(107);" class="menuLvlM1" id="menuId107" onmouseover="showstat(107); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,107);">Medical Web</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(110);" onmouseover="showstat(110); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,110);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(110);" class="menuLvlM1" id="menuId110" onmouseover="showstat(110); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,110);">OPAC</a><br><img src="https://tutprodi4ie.tut.ac.za/itsimages/join.gif" border="0" width="15">&nbsp;<a href="javascript: do_plusmin(119);" onmouseover="showstat(119); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,119);"><img src="https://tutprodi4ie.tut.ac.za/itsimages/caretopen.png" border="0" width="15" alt="Open This Menu"></a>&nbsp;<a href="javascript:do_plusmin(119);" class="menuLvlM1" id="menuId119" onmouseover="showstat(119); return true;" onmouseout="hidestat()" onclick="return mouseDown(event,this,119);">Higher Degrees</a><br></div></div></div>
-<script>close_menu();</script>
-<div class="w3-tag w3-round w3-blue" style="padding: 3px; margin-top: 5px; margin-left: 16px;">
- <div class="w3-tag w3-round w3-blue w3-border w3-border-white" style="cursor: pointer;" onclick="javascript:parent.document.getElementById('F3').contentWindow.document.documentElement.innerHTML='You have been logged out.'; parent.document.location.replace('w99pkg.mi_logout');">Logout</div>
-</div>
-<br>
-
-</body></html>
+    <div class="header">
+        <button class="menu-button">&#9776; </button>
+        <div class="logo">
+            <p>Exams Portal</p>
+        </div>
     </div>
+
+    <div class="card">
+        <div class="column1">
+            <img class="userpro" src="userpro.jpeg" alt="Profile Picture">
+            <div class="content">
+                <!-- Three vertical rectangular divs with different colors -->
+                <div class="rectangular1"></div>
+                <div class="rectangular2"></div>
+                <div class="rectangular3"></div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="semester">
+        2023 Second Semester
+    </h1>
 
     <div id="div2">
         <div id="picdiv">
@@ -126,7 +182,18 @@ function PopUp(pagename, windowname, w, h) {
            
         </div>
     </div>
-</div>
+
+       
+
+    <div class="additional-info">
+        <ol>
+            <li>Graduation Enquiries: <a href="www.tut.ac.za/graduations/about">www.tut.ac.za/graduations/about</a></li>
+            <li>Closing date for Exit Examination Applications: 19 January 2024. (N/A to Distance Education Students).</li>
+            <li>Closing Date for Examination Enquiries: 26 January 2024</li>
+            <li>Exit Examination: 5 - 9 February 2024. (N/A to Distance Education Students).</li>
+        </ol>
+    </div>
 
 </body>
+
 </html>

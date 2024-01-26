@@ -6,22 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
+            height: 100vh;
         }
 
-        .header {
-            background-color: #fff;
-            padding: 10px;
-            color: #333;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center; /* Center vertically */
+        .header, .card, .semester, #div2, .additional-info {
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            margin: 10px auto;
+        }
+
+        .column1, .content {
+            width: 100%;
         }
 
         .menu-button {
@@ -30,118 +33,39 @@
             color: #333;
             font-size: 16px;
             cursor: pointer;
+            align-self: flex-start;
         }
 
         .logo {
-            flex: 1; /* Take remaining space */
+            flex: 1;
             text-align: center;
         }
 
-        .card {
-            display: flex;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: hidden;
-            width: 300px;
-            margin: 20px auto;
-        }
-
-        .column1 {
-            flex: 1;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 2fr; /* Set 1:2 ratio */
-        }
-
-        .column1 img {
+        .userpro, .picture {
             width: 100%;
-            height: auto; /* Allow the height to adjust proportionally */
-            object-fit: cover;
-            grid-column: 1; /* Occupy the first column */
-            grid-row: 1 / span 2; /* Occupy two rows starting from the first row */
+            max-width: 100%;
         }
 
-        .column1 .content {
-            grid-column: 2; /* Occupy the second column */
-            padding-left: 20px; /* Add padding for separation */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content div {
+        .rectangular1, .rectangular2, .rectangular3 {
             height: 50px;
             margin-bottom: 10px;
         }
 
-        .content .rectangular1 {
-            background-color: #3498db; /* Blue */
+        .additional-info ol {
+            padding-left: 20px;
         }
 
-        .content .rectangular2 {
-            background-color: #2ecc71; /* Green */
-        }
-
-        .content .rectangular3 {
-            background-color: #e74c3c; /* Red */
-        }
-
-        h1.semester {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 24px;
-        }
-
-        .new-card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: hidden;
-            width: 300px;
-            margin: 20px auto;
-        }
-
-        .table-container {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .table-header {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .table-content {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .table-column {
-            flex: 1;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        .table-column:last-child {
-            border-right: none;
-        }
-
-        .additional-info {
-            margin: 20px;
-        }
-
-        .additional-info p {
+        .additional-info li {
             margin-bottom: 10px;
+        }
+
+        .additional-info a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        .additional-info a:hover {
+            text-decoration: underline;
         }
     </style>
     <title>Card with Two Columns</title>
@@ -160,7 +84,6 @@
         <div class="column1">
             <img class="userpro" src="userpro.jpeg" alt="Profile Picture">
             <div class="content">
-                <!-- Three vertical rectangular divs with different colors -->
                 <div class="rectangular1"></div>
                 <div class="rectangular2"></div>
                 <div class="rectangular3"></div>
@@ -174,20 +97,17 @@
 
     <div id="div2">
         <div id="picdiv">
-            <img class="picture" src="PIC4.JPG" alt="Image 1">
+            
             <img class="picture" src="pic1.JPG" alt="Image 2">
             <img class="picture" src="PIC3.JPG" alt="Image 3">
             <img class="picture" src="PIC2.JPG" alt="Image 4">
             <img class="picture" src="PIC5.JPG" alt="Image 5">
-           
         </div>
     </div>
 
-       
-
     <div class="additional-info">
         <ol>
-            <li>Graduation Enquiries: <a href="www.tut.ac.za/graduations/about">www.tut.ac.za/graduations/about</a></li>
+            <li>Graduation Enquiries: <a href="www.tut.ac.za/graduations/about" target="_blank">www.tut.ac.za/graduations/about</a></li>
             <li>Closing date for Exit Examination Applications: 19 January 2024. (N/A to Distance Education Students).</li>
             <li>Closing Date for Examination Enquiries: 26 January 2024</li>
             <li>Exit Examination: 5 - 9 February 2024. (N/A to Distance Education Students).</li>

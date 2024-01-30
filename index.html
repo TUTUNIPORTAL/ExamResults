@@ -17,87 +17,72 @@
             padding-top: 60px;
         }
 
-        .header,
-        .card,
-        .semester,
-        #div2,
-        .additional-info {
+        .main-container {
             width: 100%;
             max-width: 600px;
             box-sizing: border-box;
             margin: 10px auto;
-
+            padding: 0 10px;
         }
 
-        .column1,
-        .content {
+        .header,
+        .card,
+        #div2,
+        .additional-info {
             width: 100%;
+            box-sizing: border-box;
+            margin: 10px auto;
         }
 
-        .user-container {
-            position: relative;
-            width: 100%;
-            padding-top: 200%;
-            /* This creates a 1:2 aspect ratio */
+        .menu-button {
+            position: absolute;
+            top: 10px; /* Adjust as needed */
+            left: 10px; /* Adjust as needed */
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center; /* Align container div to center */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .div1 {
+            width: 70px;
+        }
+
+        .div2 {
+            flex: 1;
         }
 
         .userpro {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50px;
-
-            object-fit: cover;
-        }
-
-        .green-div {
-            background-color: green;
-            height: 200%;
-            /* This creates a 1:2 aspect ratio */
             width: 100%;
-            margin-top: -200%;
-            /* Adjusting margin to make space for the image */
+            height: auto;
+            max-width: 100%;
         }
 
-        .content {
-            width: 100%;
+        .student-numbers {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .rectangular1,
-        .rectangular2,
-        .rectangular3 {
-            height: 50px;
+        .student-numbers li {
             margin-bottom: 10px;
-        }
-
-        .additional-info ol {
-            padding-left: 20px;
-        }
-
-        .additional-info li {
-            margin-bottom: 10px;
-        }
-
-        .additional-info a {
-            text-decoration: none;
-            color: #3498db;
-        }
-
-        .additional-info a:hover {
-            text-decoration: underline;
-        }
-
-        .title {
-            padding: 0px;
-            margin: 0px;
-            text-align: center;
         }
 
         table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0 10px;
-            /* Adjust vertical spacing */
             text-align: center;
         }
 
@@ -105,11 +90,14 @@
         td {
             padding: 8px;
             border: 1px solid black;
-            /* Ensure borders remain visible */
         }
 
         .row-header {
             font-weight: bold;
+        }
+
+        .logo {
+            text-align: center;
         }
     </style>
     <title>EXAM RESULTS</title>
@@ -117,78 +105,75 @@
 
 <body>
 
-    <div class="header">
-        <button class="menu-button">&#9776; </button>
-        <div class="logo">
-            <p class="title">Exams Portal</p>
-        </div>
-    </div>
+    <div class="main-container">
+        <button class="menu-button">&#9776;</button>
 
-    <div class="card">
-        <div class="container">
-            <div class="div1">
-                <img src="userpro.jpeg" alt="User Profile Picture">
+        <div class="header">
+            <div class="logo">
+                <p class="title">Exams Portal</p>
             </div>
-            <div class="div2">
-                <div class="student-number">
-                    224627050
-                    Mr Bevan Ndzhaka Mkhabele
-                    0401315438085
+        </div>
+
+        <div class="card">
+            <div class="container">
+                <div class="div1">
+                    <img class="userpro" src="userpro.jpeg" alt="User Profile Picture">
                 </div>
-                
+                <div class="div2">
+                    <ul class="student-numbers">
+                        <li>224627050</li>
+                        <li>Mr Bevan Ndzhaka Mkhabele</li>
+                        <li>0401315438085</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <h1 class="semester">
-        2023 Second Semester
-    </h1>
+        <h1 class="semester">
+            2023 EXAM REPORT
+        </h1>
 
-    <div id="div2">
-        <div id="picdiv">
-
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="row-header">COURSE CODE</td>
-                        <td>SEM 1</td>
-                        <td>SEM 2</td>
-                        <td>SYM</td>
-                        <!-- Add more X values as needed -->
-                    </tr>
-                    <tr>
-                        <td class="row-header">COHF05D</td>
-                        <td>55</td>
-                        <td>64</td>
-                        <td>60</td>
-                        <!-- Add more X values as needed -->
-                    </tr>
-                    <tr>
-                        <td class="row-header">PPAF05D</td>
-                        <td>77</td>
-                        <td>85</td>
-                        <td>88</td>
-                        <!-- Add more Y values as needed -->
-                    </tr>
-                    <tr>
-                        <td class="row-header">CFBF15D</td>
-                        <td>63</td>
-                        <td>74</td>
-                        <td>66</td>
-                        <!-- Add more Z values as needed -->
-                    </tr>
-                </tbody>
-            </table>
+        <div id="div2">
+            <div id="picdiv">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="row-header">COURSE CODE</td>
+                            <td>SEM 1</td>
+                            <td>SEM 2</td>
+                            <td>SYM</td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">COHF05D</td>
+                            <td>55</td>
+                            <td>64</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">PPAF05D</td>
+                            <td>77</td>
+                            <td>85</td>
+                            <td>88</td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">CFBF15D</td>
+                            <td>63</td>
+                            <td>74</td>
+                            <td>66</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <div class="additional-info">
-        <ol>
-            <li>Graduation Enquiries: <a href="www.tut.ac.za/graduations/about" target="_blank">www.tut.ac.za/graduations/about</a></li>
-            <li>Closing date for Exit Examination Applications: 19 January 2024. (N/A to Distance Education Students).</li>
-            <li>Closing Date for Examination Enquiries: 26 January 2024</li>
-            <li>Exit Examination: 5 - 9 February 2024. (N/A to Distance Education Students).</li>
-        </ol>
+        <div class="additional-info">
+            <ol>
+                <li>Graduation Enquiries: <a href="www.tut.ac.za/graduations/about" target="_blank">www.tut.ac.za/graduations/about</a></li>
+                <li>Closing date for Exit Examination Applications: 19 January 2024. (N/A to Distance Education Students).</li>
+                <li>Closing Date for Examination Enquiries: 26 January 2024</li>
+                <li>Exit Examination: 5 - 9 February 2024. (N/A to Distance Education Students).</li>
+            </ol>
+        </div>
     </div>
 
 </body>

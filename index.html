@@ -95,8 +95,8 @@
             <img src="ExamsLegacy.png" alt="ExamsLegacy.png">
             <h2>Exams Portal</h2>
         </div>
-        <form>
-            <input type="text" placeholder="Username" name="username" required>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" name="username" id="username" required>
             <input type="password" placeholder="Password" name="password" required>
             <div class="remember-forgot">
                 <label>
@@ -111,9 +111,12 @@
 
     <script>
         function redirectToResults() {
-            // You can add your login logic here
-            // For this example, let's redirect to "results.html"
-            window.location.href = "results.html";
+            var username = document.getElementById('username').value;
+            if (username === '224627050') {
+                window.location.href = "results.html";
+            } else {
+                alert("Invalid username. Please try again.");
+            }
         }
     </script>
 </body>

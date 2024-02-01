@@ -1,203 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            height: 100vh;
-            padding-top: 30px;
-        }
-
-        .main-container {
-            width: 100%;
-            max-width: 600px;
-            box-sizing: border-box;
-            margin: 10px auto;
-            padding: 0 10px;
-        }
-
-        .header,
-        .card,
-        #div2,
-        .additional-info {
-            width: 100%;
-            box-sizing: border-box;
-            margin: 10px auto;
-        }
-
-        .menu-button {
-            background: none;
-            border: none;
-            color: #333;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-
-        .title {
+            background-color: #f4f4f4;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-            background-color: #ffffff;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            flex: 1;
+        .login-card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
             text-align: center;
         }
 
-        .card {
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            margin-top: 60px;
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-        }
-
-        .div1 {
-            width: 70px;
-        }
-
-        .div2 {
-            flex: 1;
-            font-weight: bold;
-        }
-
-        .userpro {
-            width: 100%;
+        .login-card img {
+            max-width: 80px;
             height: auto;
-            max-width: 100%;
-            border-radius: 50px;
+            margin-bottom: 15px;
         }
 
-        .student-numbers {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .login-card h2 {
+            margin-bottom: 15px;
         }
 
-        .student-numbers li {
+        .login-card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            border-radius: 4px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .remember-forgot label {
+            display: inline-block;
+        }
+
+        .remember-forgot a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .remember-forgot input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .login-card button {
+            width: 100%;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
             margin-bottom: 10px;
         }
 
-        table {
+        .login-card .login-using-pin-button {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 10px;
-            text-align: center;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            border: 1px solid black;
-        }
-
-        .row-header {
-            font-weight: bold;
-        }
-
-        .course-code-row {
-            background-color: #ddd; /* Darker shade of grey background color */
+            padding: 10px;
+            background-color: #fff;
+            color: #e74c3c; /* Red text color */
+            border: 1px solid #e74c3c;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
-    <title>EXAM RESULTS</title>
 </head>
-
 <body>
-
-    <div class="main-container">
-        <div class="header">
-            <button class="menu-button">&#9776;</button>
-            <div class="logo">
-                <p class="title">Exams Portal</p>
+    <div class="login-card">
+        <div>
+            <img src="ExamsLegacy.png" alt="ExamsLegacy.png">
+            <h2>Exams Portal</h2>
+        </div>
+        <form>
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" name="remember"> Remember Me
+                </label>
+                <a href="#" class="forgot-link">Forgot Password?</a>
             </div>
-        </div>
-
-        <div class="card">
-            <div class="container">
-                <div class="div1">
-                    <img class="userpro" src="userpro.jpeg" alt="User Profile Picture">
-                </div>
-                <div class="div2">
-                    <ul class="student-numbers">
-                        <li>224627050</li>
-                        <li>Mr Bevan Ndzhaka Mkhabele</li>
-                        <li>0401315438085</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <h1 class="semester">
-            2023 EXAM REPORT
-        </h1>
-
-        <div id="div2">
-            <div id="picdiv">
-                <table>
-                    <tbody>
-                        <tr class="course-code-row"> <!-- Apply background color to this row -->
-                            <td class="row-header">COURSE CODE</td>
-                            <td>SEM 1</td>
-                            <td>SEM 2</td>
-                            <td>SYM</td>
-                        </tr>
-                        <tr>
-                            <td class="row-header">COHF05D</td>
-                            <td>55</td>
-                            <td>64</td>
-                            <td>PASS</td>
-                        </tr>
-                        <tr>
-                            <td class="row-header">PPAF05D</td>
-                            <td>77</td>
-                            <td>85</td>
-                            <td>DISTINCTION</td>
-                        </tr>
-                        <tr>
-                            <td class="row-header">CFBF15D</td>
-                            <td>63</td>
-                            <td>74</td>
-                            <td>PASS</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="additional-info">
-            <ol>
-                <li>Graduation Enquiries: <a href="www.tut.ac.za/graduations/about" target="_blank">www.tut.ac.za/graduations/about</a></li>
-                <li>Closing date for Exit Examination Applications: 19 January 2024. (N/A to Distance Education Students).</li>
-                <li>Closing Date for Examination Enquiries: 26 January 2024</li>
-                <li>Exit Examination: 5 - 9 February 2024. (N/A to Distance Education Students).</li>
-            </ol>
-        </div>
+            <button type="button" onclick="redirectToResults()">Login</button>
+            <button type="button" class="login-using-pin-button">Login Using ITS PIN Instead</button>
+        </form>
     </div>
 
+    <script>
+        function redirectToResults() {
+            // You can add your login logic here
+            // For this example, let's redirect to "results.html"
+            window.location.href = "results.html";
+        }
+    </script>
 </body>
-
 </html>
